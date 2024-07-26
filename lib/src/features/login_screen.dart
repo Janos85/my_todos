@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   obscureText: !showPassword,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
-                    labelText: "Passwort",
+                    labelText: "Password",
                     icon: const Icon(Icons.password),
                     suffixIcon: IconButton(
                       onPressed: () {
@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           builder: (context) => const SignUpScreen(),
                         ));
                   },
-                  child: const Text("Noch keinen Account? Zur Registrierung"),
+                  child: const Text("Have no account? Reg hier!"),
                 ),
               ],
             ),

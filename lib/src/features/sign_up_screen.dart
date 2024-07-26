@@ -40,7 +40,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Registrierung"),
+        title: const Text("Registration"),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -64,7 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   obscureText: !showPassword,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
-                    labelText: "Passwort",
+                    labelText: "Password",
                     icon: const Icon(Icons.password),
                     suffixIcon: IconButton(
                       onPressed: () {
@@ -85,7 +85,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   obscureText: !showPassword,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
-                    labelText: "Passwort wiederholen",
+                    labelText: "Password repeat",
                     icon: const Icon(Icons.password),
                     suffixIcon: IconButton(
                       onPressed: () {
@@ -119,7 +119,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   },
                   child: const Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: Text("Registrieren"),
+                    child: Text("Reg"),
                   ),
                 ),
                 const SizedBox(height: 32),
@@ -133,7 +133,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           builder: (context) => const LoginScreen(),
                         ));
                   },
-                  child: const Text("Bereits einen Account? Zum Login"),
+                  child: const Text("I have an account already!"),
                 ),
               ],
             ),
