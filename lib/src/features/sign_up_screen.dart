@@ -4,16 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:my_todos/src/features/login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
-  // Konstruktor
   const SignUpScreen({super.key});
 
-  // Methoden
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  // state
   bool showPassword = false;
 
   late TextEditingController _emailController;
@@ -102,13 +99,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const SizedBox(height: 32),
                 ElevatedButton(
                   onPressed: () async {
-                    // User bei Firebase Auth anlegen (und einloggen)
                     final cr = await FirebaseAuth.instance
                         .createUserWithEmailAndPassword(
                             email: _emailController.text,
                             password: _pwController.text);
                     final user = cr.user!;
-                    // erstelle User Document in Firestore
                     await FirebaseFirestore.instance
                         .collection('users')
                         .doc(user.uid)

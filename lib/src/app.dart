@@ -22,7 +22,6 @@ class App extends StatelessWidget {
                     ColorScheme.fromSeed(seedColor: Colors.lightGreen)),
             themeMode: ThemeMode.light,
             home: user == null ? const LoginScreen() : const TodoScreen(),
-            // OverviewScreen(databaseRepository: databaseRepository),
           );
         });
   }

@@ -3,16 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:my_todos/src/features/sign_up_screen.dart';
 
 class LoginScreen extends StatefulWidget {
-  // Konstruktor
+  //
   const LoginScreen({super.key});
 
-  // Methoden
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  // state:
   late TextEditingController _emailController;
   late TextEditingController _pwController;
 

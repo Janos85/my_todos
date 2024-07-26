@@ -41,7 +41,6 @@ class _TodoScreenState extends State<TodoScreen> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            // erstelle Firestore Document fuer das Todo
             final randomId =
                 FirebaseFirestore.instance.collection('test').doc().id;
             await FirebaseFirestore.instance
@@ -55,7 +54,6 @@ class _TodoScreenState extends State<TodoScreen> {
                 "title": _todoController.text,
               },
             );
-            // danach cleare den TextController
             _todoController.clear();
           },
           child: const Icon(Icons.add),
@@ -67,7 +65,6 @@ class _TodoScreenState extends State<TodoScreen> {
               Flexible(
                 flex: 3,
                 child: StreamBuilder(
-                  // lies alle Dokumente aus der Collection 'todos'
                   stream: FirebaseFirestore.instance
                       .collection('users')
                       .doc(FirebaseAuth.instance.currentUser!.uid)
@@ -77,7 +74,6 @@ class _TodoScreenState extends State<TodoScreen> {
                     if (snapshot.hasData &&
                             snapshot.connectionState == ConnectionState.done ||
                         snapshot.connectionState == ConnectionState.active) {
-                      // FALL 1: Stream hat Daten!
                       final todos =
                           snapshot.data!.docs.map((e) => e.data()).toList();
                       return ListView.builder(
@@ -88,7 +84,6 @@ class _TodoScreenState extends State<TodoScreen> {
                           return Dismissible(
                             key: Key(currentTodo['title']),
                             onDismissed: (direction) async {
-                              // loesche das Dokument aus Firestore
                               await FirebaseFirestore.instance
                                   .collection('todos')
                                   .doc(currentTodo['id'])
@@ -102,7 +97,6 @@ class _TodoScreenState extends State<TodoScreen> {
                       );
                     } else if (snapshot.connectionState !=
                         ConnectionState.done) {
-                      // FALL 2: Sind noch im Ladezustand
                       return Shimmer.fromColors(
                         baseColor: Colors.grey[300]!,
                         highlightColor: Colors.grey[100]!,
@@ -131,7 +125,6 @@ class _TodoScreenState extends State<TodoScreen> {
                         ),
                       );
                     } else {
-                      // FALL 3: Es gab nen Fehler
                       return const Icon(Icons.error);
                     }
                   },
