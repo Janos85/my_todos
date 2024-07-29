@@ -82,9 +82,11 @@ class _TodoScreenState extends State<TodoScreen> {
                           final currentTodo = todos[index];
 
                           return Dismissible(
-                            key: Key(currentTodo['title']),
+                            key: Key(currentTodo['id']),
                             onDismissed: (direction) async {
                               await FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(FirebaseAuth.instance.currentUser!.uid)
                                   .collection('todos')
                                   .doc(currentTodo['id'])
                                   .delete();
